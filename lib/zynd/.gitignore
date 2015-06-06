@@ -1,0 +1,10 @@
+*.exe
+*.rar
+*.obj
+*.dat
+*.7z
+*.h
+.objs/*
+.objs
+.deps
+SciTE.properties
