@@ -18,4 +18,4 @@ set "ZYND_SRC=lib\"
 
 set "SEQ_FLAGS=-version=AudioEngine"
 
-rdmd --build-only -I%WIN_SRC% -I%CAIROD_SRC% -d -g -w -wi -J%cd% -ofbin\sequencer.exe -I%CAIROD_SRC% %CAIRO_IMPLIB% %CAIROD_FLAGS% -I%PA_SRC% %PA_IMPLIB% -I%PM_SRC% %PM_IMPLIB% -I%WIN_SRC% %WIN_FLAGS% %SEQ_FLAGS% -I%ZYND_SRC% sequencer.d
+rdmd --build-only -I%WIN_SRC% -I%CAIROD_SRC% -d -g -w -wi -J%cd% -ofbin\sequencer.exe -I%CAIROD_SRC% %CAIRO_IMPLIB% %CAIROD_FLAGS% -I%PA_SRC% %PA_IMPLIB% -I%PM_SRC% %PM_IMPLIB% -I%WIN_SRC% %WIN_FLAGS% %SEQ_FLAGS% -I%ZYND_SRC% main.d
