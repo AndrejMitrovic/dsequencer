@@ -45,7 +45,7 @@ import portaudio.exception;
 
 import portmidi.portmidi;
 import portmidi.exception;
-import portmidi.porttime;
+//import portmidi.porttime;
 
 // Note: must be gshared or otherwise put them in the user data
 __gshared bool use_sine_synth = true;

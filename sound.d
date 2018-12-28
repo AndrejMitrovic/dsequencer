@@ -28,15 +28,15 @@ import std.utf;
 
 pragma(lib, "gdi32.lib");
 
-import win32.windef;
-import win32.winuser;
-import win32.wingdi;
+//import win32.windef;
+//import win32.winuser;
+//import win32.wingdi;
 
 alias std.algorithm.min min;
 alias std.algorithm.max max;
 
 import cairo.cairo;
-import cairo.win32;
+//import cairo.win32;
 
 alias cairo.cairo.RGB RGB;
 
@@ -45,7 +45,7 @@ import portaudio.exception;
 
 import portmidi.portmidi;
 import portmidi.exception;
-import portmidi.porttime;
+//import portmidi.porttime;
 
 import sawtooth;
 import effects;
