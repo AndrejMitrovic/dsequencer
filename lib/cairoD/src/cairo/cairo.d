@@ -441,7 +441,7 @@ public struct Path
         this(cairo_path_t* path)
         {
             throwError(path.status);
-            _data._refCounted.initialize(path);
+            _data = refCounted(path);
         }
 
         /**
@@ -4503,7 +4503,7 @@ public struct FontOptions
                 throw new CairoException(cairo_status_t.CAIRO_STATUS_NULL_POINTER);
             }
             throwError(cairo_font_options_status(ptr));
-            _data._refCounted.initialize(ptr);
+            _data = refCounted(ptr);
         }
 
         /**
