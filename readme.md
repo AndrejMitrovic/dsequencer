@@ -2,7 +2,8 @@
 
 ![DSequencer](https://raw.github.com/AndrejMitrovic/dsequencer/master/bin/dsequencer.png)
 
-This was an experiment implementing a simple D sequencer.
+This is an experiment implementing a simple D sequencer.
+Note: This project was built in 2013. It builds today (as of 2022) on Win32.
 
 It uses: PortAudio, PortMidi, and Cairo.
 
@@ -38,17 +39,17 @@ DEALINGS IN THE SOFTWARE.
 
 ## Requirements
 
-DMD v2.066.1
+DMD v2.100.1
 
-Everything is included in `/bin`.
+All other DLL dependencies are included in `/bin`.
 
 Typically you would need to install the GTK+ runtime which includes the
-Cairo DLLs and a bunch of other dependencies. But it doesn't include the
-PortAudio / PortMidi DLLs.
+Cairo DLLs and a bunch of other dependencies. So everything is included in `/bin`
+for convenience.
 
 ## Building and Running
 
-Run or double-click `build.bat`.
+Run `build.bat`. It will build `bin/dsequencer.exe`.
 
 ## License
 
