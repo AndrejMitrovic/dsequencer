@@ -9,9 +9,11 @@ import std.stdio;
 import core.time;
 import core.thread;
 
-import win32.basetsd;
-import win32.mmsystem;
-import win32.windef;
+import core.sys.windows.windows;
+
+//import win32.basetsd;
+//import win32.mmsystem;
+//import win32.windef;
 
 version(Windows)
 {

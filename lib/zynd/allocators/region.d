@@ -101,6 +101,7 @@ License:    $(WEB boost.org/LICENSE_1_0.txt, Boost License 1.0)
 
 module zynd.allocators.region;
 
+import core.stdc.string;
 import core.exception;
 import core.memory;
 

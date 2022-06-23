@@ -14,7 +14,21 @@ import win32.windef;
 import win32.winuser;
 import win32.wingdi;
 
+import std.stdio;
+
+import portaudio.portaudio;
 import cairo.win32;
+
+import gui;
+import effects;
+import sound;
+import userdata;
+
+import std.utf;
+import core.runtime;
+import zynd.dsp.svfilter;
+
+import std.algorithm : min, max;
 
 /*
  * All Widget windows have this window procedure registered via RegisterClass(),
@@ -309,13 +323,12 @@ extern (Windows)
 int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int iCmdShow)
 {
     int result;
-    void exceptionHandler(Throwable e) { throw e; }
 
     try
     {
-        Runtime.initialize(&exceptionHandler);
+        Runtime.initialize();
         myWinMain(hInstance, hPrevInstance, lpCmdLine, iCmdShow);
-        Runtime.terminate(&exceptionHandler);
+        Runtime.terminate();
     }
     catch (Throwable o)
     {
