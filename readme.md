@@ -1,6 +1,6 @@
 # dsequencer
 
-![DSequencer](https://raw.github.com/drey08/dsequencer/master/bin/dsequencer.png)
+![DSequencer](https://raw.github.com/AndrejMitrovic/dsequencer/master/bin/dsequencer.png)
 
 This was an experiment implementing a simple D sequencer.
 
