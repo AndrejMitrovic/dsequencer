@@ -20,11 +20,11 @@ template isMultiDimArray(R)
 template BaseElementType(R)
 {
     static if (isArray!(ElementType!R))
-        alias BaseElementType!(ElementType!R) BaseElementType;
+        alias BaseElementType = BaseElementType!(ElementType!R);
     else static if (is (typeof({ return R.init.front(); }())T))
-        alias T BaseElementType;
+        alias BaseElementType = T;
     else
-        alias void BaseElementType;
+        alias BaseElementType = void;
 }
 
 struct ADelayProgram
