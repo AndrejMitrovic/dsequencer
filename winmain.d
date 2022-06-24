@@ -10,9 +10,7 @@ import sequencer;
 
 pragma(lib, "gdi32.lib");
 
-import win32.windef;
-import win32.winuser;
-import win32.wingdi;
+import core.sys.windows.windows;
 
 import std.stdio;
 
@@ -38,20 +36,39 @@ import std.algorithm : min, max;
  * windows and widgets.
  */
 extern (Windows)
-LRESULT winDispatch(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
+LRESULT winDispatch(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) nothrow
 {
-    auto widget = hwnd in WidgetHandles;
-
-    if (widget !is null)
+    try
     {
-        return widget.process(message, wParam, lParam);
-    }
+        auto widget = hwnd in WidgetHandles;
 
-    return DefWindowProc(hwnd, message, wParam, lParam);
+        if (widget !is null)
+        {
+            return widget.process(message, wParam, lParam);
+        }
+
+        return DefWindowProc(hwnd, message, wParam, lParam);
+    }
+    catch (Exception ex)
+    {
+        assert(0, ex.msg);
+    }
 }
 
 extern (Windows)
-LRESULT mainWinProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
+LRESULT mainWinProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) nothrow
+{
+    try
+    {
+        return mainWinProcImpl(hwnd, message, wParam, lParam);
+    }
+    catch (Exception ex)
+    {
+        assert(0, ex.msg);
+    }
+}
+
+LRESULT mainWinProcImpl(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     static PaintBuffer paintBuffer;
     static int width, height;

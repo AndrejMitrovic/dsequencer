@@ -29,9 +29,7 @@ import std.utf;
 
 pragma(lib, "gdi32.lib");
 
-import win32.windef;
-import win32.winuser;
-import win32.wingdi;
+import core.sys.windows.windows;
 
 alias std.algorithm.min min;
 alias std.algorithm.max max;
