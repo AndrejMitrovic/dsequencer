@@ -28,15 +28,10 @@ import std.utf;
 
 pragma(lib, "gdi32.lib");
 
-//import win32.windef;
-//import win32.winuser;
-//import win32.wingdi;
-
 alias std.algorithm.min min;
 alias std.algorithm.max max;
 
 import cairo.cairo;
-//import cairo.win32;
 
 alias cairo.cairo.RGB RGB;
 
@@ -45,7 +40,6 @@ import portaudio.exception;
 
 import portmidi.portmidi;
 import portmidi.exception;
-//import portmidi.porttime;
 
 import sawtooth;
 import effects;
@@ -63,7 +57,7 @@ double getFreqStep(int index)
     return values[index + 6];
 }
 
-auto CalcPhaseIncrement(T)(T freq)
+float CalcPhaseIncrement(float freq)
 {
     return freq / SampleRate;
 }
