@@ -43,9 +43,7 @@ LRESULT winDispatch(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) nothr
         auto widget = hwnd in WidgetHandles;
 
         if (widget !is null)
-        {
             return widget.process(message, wParam, lParam);
-        }
 
         return DefWindowProc(hwnd, message, wParam, lParam);
     }

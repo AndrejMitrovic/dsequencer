@@ -31,13 +31,13 @@ pragma(lib, "gdi32.lib");
 //import win32.winuser;
 //import win32.wingdi;
 
-alias std.algorithm.min min;
-alias std.algorithm.max max;
+alias min = std.algorithm.min;
+alias max = std.algorithm.max;
 
 import cairo.cairo;
 //import cairo.win32;
 
-alias cairo.cairo.RGB RGB;
+alias RGB = cairo.cairo.RGB;
 
 import portaudio.portaudio;
 import portaudio.exception;
