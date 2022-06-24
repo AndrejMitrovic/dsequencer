@@ -81,7 +81,7 @@ struct UserData
     enum BeatCount = 8;  // horizontal steps
     enum StepCount = 8;  // vertical steps
 
-    __gshared size_t curBeat;
+    __gshared static size_t curBeat;
 
     SineTable[8] sineTables;
     Blit blit;
