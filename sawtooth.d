@@ -1,3 +1,12 @@
+/* Bandlimited synthesis of sawtooth by
+ * leaky integration of a DSF BLIT
+ *
+ * Emanuel Landeholm, March 2002
+ * emanuel.landeholm@telia.com
+ *
+ * Provided \"as is\".
+ * Free as in Ef Are Ee Ee.
+ */
 module sawtooth;
 
 import std.math;
