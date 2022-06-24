@@ -283,7 +283,6 @@ abstract class Widget
 class StepWidget : Widget
 {
     UserData* userData;
-    alias UserData.curBeat curBeat;
     static bool selectState;
 
     this(Widget parent, UserData* userData, HWND hwnd, int width, int height)
@@ -358,7 +357,7 @@ class Step : StepWidget
             DrawRoundedRect(ctx, 5, 5, width - 10, height - 10, 15);
             ctx.fill();
 
-            if (beatIndex == curBeat)
+            if (beatIndex == UserData.curBeat)
             {
                 ctx.setSourceRGB(1, 1, 0);
             }
@@ -394,7 +393,7 @@ class TimeStep : StepWidget
         ctx.setSourceRGB(0, 0, 0.6);
         ctx.fill();
 
-        if (beatIndex == curBeat)
+        if (beatIndex == UserData.curBeat)
         {
             auto darkBlue = RGB(0, 0, 0.8);
             ctx.setSourceRGB(darkBlue);
@@ -417,7 +416,6 @@ class Steps : Widget
 
     TimeStep[BeatCount] timeSteps;
     Step[StepCount][BeatCount] steps;
-    alias UserData.curBeat curBeat;
 
     int stepWidth;
     int stepHeight;
@@ -504,13 +502,13 @@ class Steps : Widget
 
     void timerCallback(PtTimestamp timestamp, void* none)
     {
-        auto lastBeat = curBeat;
-        curBeat = (curBeat + 1) % BeatCount;
+        auto lastBeat = UserData.curBeat;
+        UserData.curBeat = (UserData.curBeat + 1) % BeatCount;
 
         size_t index;
 
         // todo: optimize by having an int[BeatCount] of values, or int[][BeatCount]
-        foreach (step; retro(steps[curBeat][]))
+        foreach (step; retro(steps[UserData.curBeat][]))
         {
             if (step.selected)
             {
@@ -530,7 +528,7 @@ class Steps : Widget
         }
 
         redrawSteps(lastBeat);
-        redrawSteps(curBeat);
+        redrawSteps(UserData.curBeat);
     }
 
     override LRESULT process(UINT message, WPARAM wParam, LPARAM lParam)
